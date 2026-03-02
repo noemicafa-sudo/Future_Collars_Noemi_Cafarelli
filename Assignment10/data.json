@@ -1,0 +1,1 @@
+{"balance": 13.0, "inventory": [{"object": "Pen", "price": 3, "amount": 1}, {"object": "Notebook", "price": 5, "amount": 5}], "operations": ["Added balance 5.0", "Product status requested", "Show inventory", "Sold product Pen", "Balance request: 13.0"]}
