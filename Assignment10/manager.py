@@ -1,5 +1,12 @@
 import json
 
+def log_operation(func):
+    def wrapper(self, *args, **kwargs):
+        result = func(self, *args, **kwargs)
+        self.operations.append(f"{func.__name__.capitalize()} operation executed")
+        return result
+    return wrapper
+
 class Manager:
     def __init__(self):
         self.balance = 5
@@ -31,13 +38,6 @@ class Manager:
         with open("data.json", "w") as file:
             json.dump(data, file)
         print("Data saved")
-
-    def log_operation(self, func):
-        def wrapper(*args, **kwargs):
-            result = func(*args, **kwargs)
-            self.operations.append(f"{func.__name__.capitalize()} operation executed")
-            return result
-        return wrapper
 
     @property
     def tasks(self):
